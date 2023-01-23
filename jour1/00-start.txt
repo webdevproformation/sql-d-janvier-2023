@@ -1,0 +1,104 @@
+
+support de cours :
+https://formation.webdevpro.net/sql/
+login : sql 
+password : sql 
+
+
+MySQL
+phpMyAdmin
+jointure 
+
+// javascript 
+// créer des variables => stocker des informations 
+const a = "texte";
+const b = 2 ;
+const c = true ;
+const d = ["Alain", "Céline"]
+const e = { prenom : "Alain", age : 20 }
+
+// traitement 
+// addition / soustraction 
+// concaténation
+// calcul boolean
+// boucle condition
+function f (){
+
+}
+
+// plus le problème est compliqué et plus la partie création de variable va être importante 
+
+// variable complexe 
+// tableau et objet => fusionner 
+
+const etudiants = [
+    { nom : "Alain" , id : 1 , matieres : [
+        { nom : "JS" , dt_exam : "01/03/2023" , note : 12 },
+        { nom : "PHP" , dt_exam : "01/04/2023" , note : 13 },
+    ] },
+     { nom : "Céline" , id : 2 , matieres : [
+        { nom : "JS" , dt_exam : "01/03/2023" , note : 15 },
+        { nom : "PHP" , dt_exam : "01/04/2023" , note : 6 },
+    ] },
+     { nom : "Zorro" , id : 3 , matieres : [
+        { nom : "JS" , dt_exam : "01/03/2023" , note : 9 },
+        { nom : "PHP" , dt_exam : "01/04/2023" , note : 12 },
+    ] }
+]
+
+
+=> stocker de manière FIABLE toutes les informations pour décrire une fusée 
+
+=> comment stocker des données de manière FIABLES / simple d'utilisation 
+=> année 70 
+=> Base données 
+=> ingéneur IBM => Monsieur Codd 
+
+=> Base de données Relationnelles 
+
+=> logiciel stocker les informations => Base de données 
+
+=> deux parties 
+
+=> SGBD => Système de Gestion de Base de Données 
+=> données => les informations
+
+=> développeur vous allez parler au SGBD => réaliser toutes les manipulations pour stocker de manières optimales les informations 
+=> faire des REQUETES / des DEMANDES au SGBD (REQUEST)
+
+=> pour parler aux SGBD => utilise le langage SQL 
+Structured Query Langage 
+
+
+support de cours :
+https://formation.webdevpro.net/sql/
+login : sql 
+password : sql 
+
+Attention ne pas confondre SQL (langage) avec MySQL (SGBD)
+Attention ne pas confondre SQL (langage) avec phpMyAdmin (outil)
+
+
+pour apprendre le SQL => besoin d'un SGBD 
+=> avec SQlite / MariaDB (MySQL) => PHP 
+
+=> 1 installer le SGBD 
+=> extensions > Sqlite => installer SQLite de alexcvzz 
+
+=> SQLITE créé en 2000 => 
+
+=> créer la base de données => dans ce fichier que l'on va stocker les informations 
+
+=> 2 créer un fichier demo.db 
+autre convention
+ demo.sqlite 
+ demo.sqlite3
+
+=> créer le fichier ET JAMAIS vous allez écrire dedans 
+=> c'est le rôle du SGBD d'écrire de lire de modifier le contenu du fichier demo.db 
+
+=> 3 voir le contenu du fichier demo.db de manière sécurisée 
+
+=> 4 créer un fichier 01-table.sql
+
+
