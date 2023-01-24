@@ -46,3 +46,33 @@ FROM articles
 GROUP BY auteur ;
 
 -- afficher par mois la liste des articles publiés 
+
+SELECT strftime("%m", dt_publication) AS `mois` ,
+        GROUP_CONCAT(titre) AS `liste des articles publiés `
+FROM articles
+GROUP BY strftime("%m", dt_publication) ;
+
+
+SELECT strftime("%m", dt_publication) AS `mois` ,
+        GROUP_CONCAT(titre) AS `liste des articles publiés `
+FROM articles
+GROUP BY `mois` ;
+
+-- 
+-- afficher tous les auteurs qui ont plus de 15 likes cumulés 
+
+SELECT auteur ,
+        SUM(`like`)
+FROM articles 
+GROUP BY auteur
+HAVING SUM(`like`) >= 15
+
+-- afficher par etat 0 => brouillon 
+-- afficher par etat 1 => publié 
+-- pour chaque état afficher la liste des titres des articles 
+
+
+SELECT (CASE etat WHEN TRUE THEN "publie" ELSE "brouillon" END ) AS `etat articles` ,
+       GROUP_CONCAT(titre) AS `liste des articles publiés`
+FROM articles 
+GROUP BY `etat articles`
