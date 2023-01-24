@@ -131,9 +131,77 @@ WHERE contenu LIKE "%sed%" ;
 -- affiché uniquement contenu, id , titre 
 -- renommer le titre en "titre publication"
 
+SELECT contenu, id , titre AS `titre publication`
+FROM articles 
+WHERE etat = TRUE ;
+
 -- requete 2
 -- récupérer tous les articles dont le titre contient le mot js 
 -- afficher le titre, auteur , dt_publication , état 
 -- 0 pour état => brouillon
 -- 1 pour état => publié 
--- renommer la colonne dt_publication => date publication 
+-- renommer la colonne dt_publication => 
+SELECT titre AS `toto` , 
+       auteur AS `tutu`, 
+       dt_publication AS `date publication `, 
+       (CASE etat WHEN TRUE THEN "publie" ELSE "brouillon" END) AS `état publication`
+FROM articles 
+WHERE titre LIKE "%js%" ;
+
+-- 
+
+SELECT titre, dt_publication 
+FROM articles ;
+
+-- récupérer pour tous les articles 
+-- titre et dt_publication
+-- les dates au format français JJ/MM/AAAA
+
+-- sqlite 
+-- https://sqlite.org/lang_datefunc.html => strftime()
+
+SELECT titre, strftime("%d/%m/%Y", dt_publication ) AS `date publication en français` 
+FROM articles ;
+
+-- mysql mariadb 
+-- date_format => https://www.w3schools.com/sql/func_mysql_date_format.asp
+
+-- exo 
+-- afficher tous articles publiés par Pierre
+-- afficher titre , contenu , like , dt_publication , etat
+-- les valeurs de la date de publication afficher uniquement MM/AAAA
+-- etat TRUE => finalisé FALSE => encours
+-- renommer le titre "titre de l'article"
+-- renommer le like  "succes"
+
+
+SELECT titre AS `titre de l'article`, 
+       contenu , 
+       `like` AS `succès`, 
+       strftime("%m/%Y" , dt_publication) AS `date publication` , 
+       (CASE etat WHEN TRUE THEN "finalisé" ELSE "encours" END) AS `état`
+FROM articles 
+WHERE auteur = "Pierre"
+
+-- if(condition) {   }
+/* const a = 10 ;
+if(a == 20) 
+{ 
+}
+elseif(a == 2){
+} 
+else { 
+}
+
+switch(a){
+    case 10 :
+    case 2 :
+    default :
+} */
+
+if(etat == true){
+    return "finalisé"
+}else {
+    return "encours" 
+}
+
