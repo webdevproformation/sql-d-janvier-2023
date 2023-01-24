@@ -78,3 +78,5 @@ SELECT titre ,
 FROM articles
 WHERE auteur IN ("Pierre" , "Alain") 
 ORDER BY titre ;
+
+-- https://sqlite.org/lang_select.html
