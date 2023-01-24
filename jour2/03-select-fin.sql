@@ -35,3 +35,13 @@ ORDER BY `dt_publication` ASC , like DESC ; --
 SELECT * 
 FROM articles 
 ORDER BY `titre` DESC;
+
+-- récupérer tous les articles dont le nombre de like comprise entre 10 et 30 
+
+SELECT * 
+FROM articles 
+WHERE `like` >= 0 AND `like` <= 30 ;
+
+SELECT * 
+FROM articles 
+WHERE `like` BETWEEN 0 AND 30 ;
