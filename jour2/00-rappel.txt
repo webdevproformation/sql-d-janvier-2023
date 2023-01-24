@@ -1,0 +1,161 @@
+tout programme information => plein de données 
+
+variables permettent de stocker ces données 
+- beaucoup de variable 
+- variable complexe array / object 
+
+=> complexe maintenir 
+=> pas facile à mettre à jour 
+
+=> FIABILITE 
+
+=> problème apparu avec le début de l'informatique (année 70)
+
+=> Monsieur Codd => base de données => fabiliser le stockage des données 
+
+logiciel 4 parties :
+- données 
+- sgbd => logiciel qui permet de communiquer / manipuler les données écouter les demandes du programme / du développeur
+- client 
+- langage
+
+= sgbd => Sqlite / MySQL / Oracle ..... 
+= client : Visual Studio Code / phpMyAmin / ligne de commande  (outil qui permet de faire des REQUETES au SBGD )
+= langage => SQL 
+
+= conseil 
+
+-------------
+
+1 créer une base de données 
+
+sur Sqlite => créer un fichier xxxxxx.db 
+
+2 dans une base de données => créer des TABLES 
+
+CREATE TABLE nom_table () ;
+
+3 il faut définir dans les parenthèses => columns de la table 
+
+CREATE TABLE nom_table (
+    nom_col1 TYPE INFO en + ,
+    nom_col2 TYPE INFO en + ,
+    nom_col3 TYPE INFO en + 
+) ;
+
+nom colonnes en minuscules
+éviter de mettre le symbole espace dans les noms_composes
+de préférence utiliser _ underscore 
+éviter les caractères accentuées
+
+TYPE =>
+texte 
+
+CHAR() texte à nombre de caractère fixe maximum de 255 caractères
+VARCHAR() texte à nombre de caractère VARIABLE maximum de 255 caractères
+TEXT  maximum 65 mille lettres 
+
+chiffres
+
+entier 
+TINYINT 2 ^ 8 
+SMALLINT 2 ^ 16
+INT      2 ^ 32 
+
+virgule
+FLOAT  2 ^ 8  => virgule flottant 
+DOUBLE  2 ^ 16
+DECIMAL
+
+spéciaux
+BOOLEAN 0 / 1 
+
+date 
+DATE AAAA-MM-JJ
+TIME HH:MM:SS 
+DATETIME AAAA-MM-JJ HH:MM:SS 
+
+=> bonne pratique de choisir le type le plus proche des données que vous allez stocker
+
+
+CREATE TABLE demo (
+    id INTEGER PRIMARY KEY AUTOINCREMENT , -- clé primaire permet de faciliter 
+                                           -- la manipulation de la table
+                                           -- données stockées dans chaque ligne est unique 
+    nom VARCHAR(20),
+    dt_creation DATETIME DEFAULT CURRENT_DATETIME ,
+    prix FLOAT DEFAULT 0 ,
+    etat BOOLEAN DEFAULT TRUE ,
+    description TEXT 
+)
+
+=> modifier le SCHEMA de votre table 
+
+=> ALTER TABLE (disponible sur MariaDB / MySQL )
+
+=> DROP TABLE nom_table ;  (SQLITE)
+=> CREATE TABLE ...
+
+=> dans le monde de SQL ALTER TABLE / DROP TABLE => pas possible de retour en arrière 
+
+
+=> ALTER TABLE / DROP TABLE => structure
+=> DELETE UPDATE INSERT    => données stockées 
+
+=> CRUD => 4 opérations de base réalisées les bdd (et aussi les OS Operating Systems)
+
+ligne dans une table 
+CREATE => INSERT INTO
+READ   => SELECT 
+UPDATE => UPDATE 
+DELETE => DELETE 
+
+
+INSERT INTO nom_table 
+() -- les colonnes 
+VALUES
+()  -- valeurs 
+si vous avez mis une valeur en DEFAULT dans la structure de la table ET non précisé dans la première pair de parenthèses => valeur par défaut qui est insérée 
+
+INSERT INTO nom_table 
+() -- les colonnes 
+VALUES
+() , -- plusieurs lignes 
+() ,
+() ;
+
+
+-- MySQL / MariaDB
+INSERT INTO nom_table 
+VALUES 
+() ,
+() , -- bien respecter l'ordre des colonnes de la structure de la table
+() ;
+
+
+UPDATE nom_table SET nom_col = "nouvelle valeur" , nom_col2 = 12 
+WHERE id = 1 ;
+
+-- attention ne JAMAIS exécuter de requête UPDATE sans la clause WHERE 
+
+DELETE FROM nom_table WHERE id = 1 ;
+
+-- attention ne JAMAIS exécuter de requête DELETE sans la clause WHERE 
+
+
+-- créer la requête qui permet de créer la table exo6 
+-- contient 5 colonnes 
+-- id clé primaire
+-- nom texte maximum de 20 caractères
+-- sexe homme / femme par défaut femme
+-- dt_creation jj/mm/aaaa par défaut la date c'est aujourd'hui
+-- age chiffre entier inférieur ou égal à 120 
+
+-- ajouter deux lignes 
+-- Alain homme aujourd'hui 32
+-- Céline femme aujourd'hui 17
+
+-- modifier l'age de Alain => 50
+-- modifier le nom de Céline => Julie et modifié son age 15
+
+-- supprimer le profil d'Alain 

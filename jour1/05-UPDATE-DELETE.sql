@@ -66,3 +66,11 @@ DELETE FROM demo WHERE id <= 2 ;
 -- modifier le nom de Céline => Julie et modifié son age 15
 
 -- supprimer le profil d'Alain 
+
+-- https://github.com/webdevproformation
+
+
+INSERT INTO exo6
+(nom , sexe , age )
+VALUES 
+()
