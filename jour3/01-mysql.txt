@@ -1,0 +1,75 @@
+MySQL autre SGBD 
+
+=> 1970 informatique 
+=> 1989 => début internet 
+=> 1990 => première base de données 
+=> MySQL => 1991 (open source) 
+
+=> installer XAMPP 
+
+=> démarré XAMPP => serveur 
+logiciel qui permet de service des DEMANDES
+=> demande http => service (sous logiciel du serveur) Apache
+=> demande SQL  => service (sous logiciel du service) MariaDB (MySQL)
+
+
+=> tableau 
+
+=> MariaDB => SGBD 
+=> SQL langage
+=> phpMyAdmin => outil dans lequel on va écrire le SQL 
+
+Le client : 
+=> http://localhost/phpmyadmin/
+
+=> créer une base de données 
+
+=> Base de données 
+
+-- créer une base de données 
+CREATE DATABASE demo DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
+
+CREATE DATABASE exemple2 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
+
+-- supprimer une base de données 
+DROP DATABASE exemple2 ;
+
+
+-- créer une table 
+
+CREATE TABLE demo.premier (
+    nom VARCHAR(200)
+);
+
+
+-- créer une table articles 
+clé primaire id
+titre texte maximum de 200 lettres
+contenu texte maximum de 65 mille caractères
+dt_parution date et heure par défaut maintenant 
+etat boolean 
+
+
+
+CREATE TABLE `demo`.`articles` (
+    `id` INT NOT NULL AUTO_INCREMENT , 
+    `titre` VARCHAR(200) NOT NULL DEFAULT 'Aucun titre' , 
+    `contenu` TEXT NOT NULL , 
+    `dt_parution` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+    `etat` BOOLEAN NOT NULL COMMENT 'l\'article peut avoir deux états true => publié / false => en cours ' , 
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB; 
+
+utiliser phpMyAdmin pour créer la table suivante (qui appartient à la base demo)
+
+nom table : auteur 
+avec 9 colonnes :
+clé primaire id 
+prenom texte avec maximum de 200 lettres
+nom  texte avec maximum de 200 lettres
+role texte avec exactement 4 lettres 
+dt_creation_profil date et heure par défaut maintenant
+like chiffre entier maximum 4 milliards
+biographique texte maximum de 65 mille lettres 
+actif qui ne peut avoir que deux valeurs actif / inactif 
+email texte avec maximum de 200 lettres
