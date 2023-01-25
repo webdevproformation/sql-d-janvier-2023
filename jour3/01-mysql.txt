@@ -73,3 +73,45 @@ like chiffre entier maximum 4 milliards
 biographique texte maximum de 65 mille lettres 
 actif qui ne peut avoir que deux valeurs actif / inactif 
 email texte avec maximum de 200 lettres
+
+
+CREATE TABLE `demo`.`auteur` (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT , 
+    `prenom` VARCHAR(200) NOT NULL , 
+    `nom` VARCHAR(200) NOT NULL , 
+    `role` CHAR(4) NOT NULL , 
+    `dt_creation_profil` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+    `like` INT NOT NULL , 
+    `biographique` TEXT NOT NULL , 
+    `actif` BOOLEAN NOT NULL , 
+    `email` VARCHAR(200) NOT NULL 
+) ENGINE = InnoDB; 
+
+------
+
+CRUD 
+
+
+remplir de données 
+INSERT INTO auteur 
+(col, col)
+valeurs
+()
+
+auteur 
+
+prénom Alain
+nom DOE 
+role administrateur
+dt_creation_profil maintenant 
+like 20 
+biographique  découvrir le langage SQL
+actif 1 
+email alain@yahoo.fr
+
+INSERT INTO `auteur` (`id`, `prenom`, `nom`, `role`, `dt_creation_profil`, `like`, `biographique`, `actif`, `email`) VALUES (NULL, 'Alain', 'DOE', 'administrateur', current_timestamp(), '20', 'découvrir le langage SQL', '1', 'alain@yahoo.fr'); 
+
+Ajouter dans la table auteur, les 2 lignes suivantes 
+
+"Zorro"  "De la Vega" "redacteur" le 1er janvier 2023 , 50 , acteur , TRUE , zorro@yahoo.fr 
+"Bernardo"  "DOE" "administrateur" le 1er février 2023 , 150 , comédien , FALSE , bernardo@yahoo.fr 
