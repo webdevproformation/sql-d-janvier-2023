@@ -115,3 +115,65 @@ Ajouter dans la table auteur, les 2 lignes suivantes
 
 "Zorro"  "De la Vega" "redacteur" le 1er janvier 2023 , 50 , acteur , TRUE , zorro@yahoo.fr 
 "Bernardo"  "DOE" "administrateur" le 1er février 2023 , 150 , comédien , FALSE , bernardo@yahoo.fr 
+
+
+INSERT INTO `auteur` 
+(`id`, `prenom`, `nom`, `role`, `dt_creation_profil`, `like`, `biographique`, `actif`, `email`) 
+VALUES 
+(NULL, 'Zorro', 'De la Vega', 'redacteur', '2023-01-01 00:00:00', '50', 'acteur', '1', 'zorro@yahoo.fr'), 
+(NULL, 'Bernardo', 'DOE', 'administrateur', '2023-02-01 00:00:00', '150', 'comédien', '0', 'bernardo@yahoo.fr'); 
+
+SELECT * FROM auteur ;
+
+
+UPDATE 
+
+DELETE 
+
+SELECT `prenom` `email` FROM `auteur` WHERE id = 3 ; 
+
+
+créer une table categories (dans la base demo)
+
+qui contient 6 colonnes  :
+clé primaire id 
+nom texte avec maximum 255 lettres 
+description 65 milles lettres 
+dt_creation année mois et jour => par défaut maintenant 
+permalien texte de maximum 255 lettres 
+etat actif / inactif par défaut inactif 
+
+Insérer 2 lignes dans cette table 
+js , initiation js , maintenant , js , actif 
+php , créer un site avec php , 01/01/2023 , creer-site , inactif 
+
+
+-- 
+
+changer le titre de l'article js => js et jquery
+changer la description de l'article js => js initiation et manipulation dom avec jquery 
+
+UPDATE categories SET nom = "js et jquery" , description = "js initiation et manipulation dom avec jquery" WHERE nom = "js"
+
+requête select 
+colonne nom , dt_creation
+mettre la date au format fr 
+renommer la colonne dt_creation par date de parution
+
+SELECT nom , DATE_FORMAT(dt_creation , "%d/%m/%Y") AS `date de parution`
+FROM categories ;
+
+
+
+ALTER TABLE `articles` ADD FOREIGN KEY (`auteur_id`) REFERENCES `auteur`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT; 
+
+exo 
+mettre en place une relation entre la table articles et la table catégorie 
+une catégorie peut être associée à plusieurs articles 
+un article peut être associé à 1 seule catégorie 
+
+
+1 créer la colonne dans la table concernée (catégorie_id dans la table articles)
+2 mettre une valeur existante dans catégorie_id
+3 onglet structure > vue relationnelle > 
+utiliser les menus déroulants > catégorie_id / demo / categories / id 
