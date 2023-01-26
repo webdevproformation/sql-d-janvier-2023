@@ -1,0 +1,22 @@
+STOCKER 
+
+INSERT INTO table (dt) VALUES ("2023-01-26") -- stocker une DATE
+
+ne pas faire 
+INSERT INTO table (dt) VALUES ("26/01/2023") -- ne pas faire stocker une string
+
+----------
+
+recupérer MySQL
+
+SELECT DATE_FORMAT(dt, "%d/%m/%Y") FROM table 
+
+sqlite 
+
+SELECT strftime("%d/%m/%Y" , dt ) FROM table 
+
+----------
+
+recupérer tous les articles qui ont été publiés le 01/01/2023
+
+SELECT DATE_FORMAT(dt, "%d/%m/%Y") FROM table WHERE dt = "2023-01-01";
